@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/dashboard/dashboard_screen.dart';
+
 void main() {
   runApp(const PlantTrackerApp());
 }
@@ -16,11 +18,7 @@ class PlantTrackerApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Plant Tracker'),
-        ),
-      ),
+      home: const DashboardScreen(),
     );
   }
 }
