@@ -1,0 +1,35 @@
+{
+    "name": "plant_tracker",
+    "short_name": "plant_tracker",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "Plant Care & Growth Tracker is a smart and user-friendly mobile application built with Flutter that helps users monitor and manage their plants efficiently. The app allows users to track plant growth, watering schedules, sunlight exposure, and overall plant health in one place. With reminders, progress tracking, and an intuitive interface, it makes plant care simple and organized for both beginners and gardening enthusiasts.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
