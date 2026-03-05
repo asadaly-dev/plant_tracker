@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:plant_tracker/core/constants.dart';
 import 'package:plant_tracker/features/dashboard/models/plant_model.dart';
@@ -9,7 +11,11 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final plantProvider = Provider.of<PlantProvider>(context);
+    final plants = plantProvider.plants;
+
     return Scaffold(
+
       backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         title: const Text('My Plant Track'),
@@ -18,10 +24,28 @@ class DashboardScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          context.watch<PlantProvider>().plants.length.toString(),
-          style: TextStyle(fontSize: 18),
-        ),
+        child: ListView.builder(
+          itemCount: plants.length,
+          itemBuilder: (context, index) {
+          final plant = plants[index];
+          return Card(
+            margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            child: ListTile(
+              leading: const Icon(Icons.local_florist),
+              title: Text(plant.name),
+              subtitle: Text(plant.species),
+              trailing: Row(mainAxisSize:MainAxisSize.min,
+              children: [
+                IconButton(onPressed: (){
+                  plantProvider.waterPlant(plant.id);
+                }, icon:Icon(Icons.opacity,color: Colors.blue,)),
+                IconButton(onPressed: (){
+                  plantProvider.deletePlant(plant.id);
+                }, icon:Icon(Icons.delete,color: Colors.grey,))
+              ],),
+            ),
+          );
+        } ,),
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
         final newPLant = Plant(id: DateTime.now().toString(), name: "Marigold", species: "Tagetes", waterIntervalDays: 2, lastWatered: DateTime.now());

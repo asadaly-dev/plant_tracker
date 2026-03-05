@@ -23,7 +23,8 @@ class PlantProvider extends ChangeNotifier {
     for (var i =0; i<_plants.length;i++)
       {
         if (_plants[i].id == plantId){
-          _plants.remove(i);
+          _plants.removeAt(i);
+          print('Deleted');
           break;
         }
       }
