@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'features/dashboard/dashboard_screen.dart';
+import 'features/dashboard/providers/plant_provider.dart';
 
 void main() {
-  runApp(const PlantTrackerApp());
+  runApp( ChangeNotifierProvider
+    (
+      create: (context) => PlantProvider(),
+      child: PlantTrackerApp()));
 }
 
 class PlantTrackerApp extends StatelessWidget {
